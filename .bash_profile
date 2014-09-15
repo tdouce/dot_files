@@ -111,7 +111,7 @@ tell application "iTerm"
         activate current session
         launch session "Default Session"
         tell the last session
-            write text "cd ~/code/intersect/ && clear && pwd && $1"
+            write text "cd $1 && clear && pwd && $2"
         end tell
     end tell
 end tell
@@ -119,13 +119,15 @@ EOF
 }
 
 start_intersect () {
-  new_tab 'start_mysql'
-  new_tab 'start_solr'
-  new_tab 'start_mongo'
-  new_tab 'start_redis'
-  new_tab 'be rails s'
-  new_tab 'be rails c'
-  new_tab 'clear'
-  new_tab 'mvim README.md'
-  new_tab 'to_retailme'
+  INTERSECT_DIR="~/code/intersect/"
+  new_tab $INTERSECT_DIR 'start_mysql'
+  new_tab $INTERSECT_DIR 'start_solr'
+  new_tab $INTERSECT_DIR 'start_mongo'
+  new_tab $INTERSECT_DIR 'start_workers'
+  new_tab $INTERSECT_DIR 'start_redis'
+  new_tab $INTERSECT_DIR 'be rails s'
+  new_tab $INTERSECT_DIR 'be rails c'
+  new_tab $INTERSECT_DIR 'clear'
+  new_tab $INTERSECT_DIR 'mvim README.md'
+  new_tab $INTERSECT_DIR 'to_retailme'
 }
