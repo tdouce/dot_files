@@ -41,6 +41,10 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 ### End - Chruby
 
+### Autostart apps
+source "bin/autostart_apps.sh"
+###
+
 ### Start - Handy aliases
 #Mac
 alias show_dot_files='defaults write com.apple.finder AppleShowAllFiles -bool YES'
