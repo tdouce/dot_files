@@ -75,7 +75,7 @@
 ;;                                   (define-key clojure-mode-map (kbd "C-M-]") 'paredit-forward-slurp-sexp)
 ;;                                   (define-key clojure-mode-map (kbd "C-M-[") 'paredit-forward-barf-sexp))))
 
-;;;; Python
+;;;; Python - https://github.com/jorgenschaefer/elpy
 ;;  Autocompletion
 (package-initialize)
 (elpy-enable)
