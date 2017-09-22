@@ -85,3 +85,26 @@
   "Insert a python debugger statement"
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
+
+;;;; Ruby - http://crypt.codemancers.com/posts/2013-09-26-setting-up-emacs-as-development-environment-on-osx/
+;; Robe
+(add-hook 'ruby-mode-hook 'robe-mode)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+(add-hook 'robe-mode-hook 'ac-robe-setup)
+
+;; Autocomplete methods
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories
+             "~/.emacs.d/.cask/24.3.50.1/elpa/auto-complete-20130724.1750/dict")
+(ac-config-default)
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
+
+;; Automplete syntax (i.e. parens, end statements, etc)
+(require 'smartparens-config)
+(require 'smartparens-ruby)
+(smartparens-global-mode)
+(show-smartparens-global-mode t)
+;;;; Ruby - end
