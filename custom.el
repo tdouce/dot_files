@@ -75,9 +75,8 @@
 ;;                                   (define-key clojure-mode-map (kbd "C-M-]") 'paredit-forward-slurp-sexp)
 ;;                                   (define-key clojure-mode-map (kbd "C-M-[") 'paredit-forward-barf-sexp))))
 
-
-
-;; Python - autocompletion
+;;;; Python
+;;  Autocompletion
 (package-initialize)
 (elpy-enable)
 
@@ -85,6 +84,7 @@
   "Insert a python debugger statement"
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
+;;; Python - end
 
 ;;;; Ruby - http://crypt.codemancers.com/posts/2013-09-26-setting-up-emacs-as-development-environment-on-osx/
 ;; Robe
