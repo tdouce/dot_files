@@ -118,4 +118,22 @@
 ;; (setq enh-ruby-program "(path-to-ruby1.9)/bin/ruby") ; so that still works if ruby points to ruby1.8
 (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
+
+;; Chruby - Start
+;; Enable robe to recognize chruby for ruby version management
+;; https://github.com/mveytsman/.emacs.d/blob/master/user-lisp/setup-ruby-mode.el
+(require 'chruby)
+(chruby "ruby-2.2.1")
+
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (chruby-use-corresponding))
+
+(setq inf-ruby-default-implementation "pry")
+
+(add-hook 'ruby-mode-hook 'robe-mode)
+(provide 'setup-ruby-mode)
+;; Chruby - End
 ;;;; Ruby - end
